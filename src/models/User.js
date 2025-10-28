@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
@@ -7,6 +7,8 @@ const userSchema = new mongoose.Schema(
     phoneNumber: { type: String },
     address: { type: String },
     role: { type: String, enum: ["USER", "ADMIN"], default: "USER" },
+    orderedFoods: { type: [Schema.ObjectId] },
+    isVerified: { type: Boolean },
   },
   { timestamps: true }
 );
